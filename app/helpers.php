@@ -1,11 +1,14 @@
 <?php
 
-function active($page, $active)
-{
-	if ($page == $active) {
-		return 'active';
+	function active($page, $active)
+	{
+		if ($page == $active) {
+			return 'active';
+		}
+		return '';
 	}
-	return '';
-}
-
+	function currentUser()
+	{
+		return auth('web')->user();
+	}
 ?>

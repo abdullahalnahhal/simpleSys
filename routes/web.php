@@ -20,5 +20,6 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::post('/login','UsersController@login')->name('login.submit');
+Route::get('/logout','UsersController@logout')->name('logout');
 
 Route::middleware(['web', 'auth'])->get('/index', 'HomeController@index')->name('home');

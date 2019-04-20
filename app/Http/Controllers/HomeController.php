@@ -10,7 +10,9 @@ class HomeController  extends Controller
 {
 	public function index()
 	{
-		return view('app.index');
+		return view('app.index',[
+			'active' => 'Index',
+		]);
 	}
 
 }

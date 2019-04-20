@@ -110,6 +110,12 @@ class UsersController  extends Controller
 		// if not success return to the login page with the form data
 		return redirect()->back()->withErrors('Email Or Password May Be Wrong')->withInput($request->only('email', 'remember'));
 	}
+
+	public function logout()
+	{
+		Auth::guard('web')->logout();
+		return redirect()->route('login');
+	}
 }
 
 ?>
