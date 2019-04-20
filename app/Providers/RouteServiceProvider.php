@@ -40,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         //
+        $this->mapUsersSettings();
     }
 
     /**
@@ -69,5 +70,13 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+    protected function mapUsersSettings()
+    {
+      Route::middleware(['web', 'auth'])
+            ->prefix('users')
+            ->name('users.')
+            ->namespace("App\Http\Controllers")
+            ->group(base_path('routes/users.php'));
     }
 }
