@@ -9,7 +9,7 @@
 
     <title>@yield('title')</title>
     @include('layout.head')
-    @push('css')
+    @stack('css')
 </head>
 <body id="page-top">
 	<div id="wrapper">
@@ -36,7 +36,7 @@
     </div>
     <!-- End of Content Wrapper -->
     @include('layout.foot')
-    @push('js')
+    @stack('js')
   </div>
 </body>
 </html>

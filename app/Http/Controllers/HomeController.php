@@ -10,7 +10,7 @@ class HomeController  extends Controller
 {
 	public function index()
 	{
-		dd('index');
+		return view('app.index');
 	}
 
 }

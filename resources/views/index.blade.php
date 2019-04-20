@@ -40,7 +40,7 @@
                   <form class="user" action="{{route('login.submit')}}" method="POST">
                   	@csrf
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="{{old('email')??''}}">
                     </div>
                     <div class="form-group">
                       <input type="password" name='password' class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
@@ -50,7 +50,14 @@
                     </button>
                   </form>
                   <hr>
-
+                  @if($errors->any())
+                      <ul>
+                      @foreach($errors->all() as $error)
+                        <li class='text-danger'>{{$error}}</li>
+                        <br>
+                      @endforeach
+                    </ul>
+                  @endif
                 </div>
               </div>
             </div>

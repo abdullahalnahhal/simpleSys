@@ -14,9 +14,18 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-users fa-fw"></i>
+        <a class="nav-link" href="{{route('home')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <li class="nav-item {{active('Users', $active)}}">
+        <a class="nav-link" href="{{route('users.index')}}">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Users</span></a>
       </li>
 
       <!-- Divider -->
