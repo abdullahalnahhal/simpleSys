@@ -6,8 +6,6 @@
     Route::get('{id}/edit','UsersController@edit')->name('edit');
     Route::get('{id}/delete','UsersController@delete')->name('delete');
 
-    
-
     Route::post('/new','UsersController@add')->name('add');
     Route::post('{id}/update','UsersController@update')->name('update');
 
