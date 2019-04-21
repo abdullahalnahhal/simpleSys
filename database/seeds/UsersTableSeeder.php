@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
         	],
         	[
         		'id' => 2,
-        		'name' => 'Super Admin',
+        		'name' => 'Simple User',
         		'email' => 'user@admin.com',
         		'role_id' => 2,
         		'password' => Hash::make('user'),

@@ -8,12 +8,16 @@
 <h1 class="h3 mb-4 text-gray-800">{{$user->name}}</h1>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
+        @can('delete', $user)
         <a href="javascript:void(0)" class="btn btn-danger btn-circle command" command='confirm' action='url' url="{{route('users.delete', ['id'=>$user->id])}}" message="Are You Sure You Want To Remove These Item ...?">
             <i class="fas fa-trash"></i>
         </a>
+        @endcan
+        @can('update', $user)
         <a href="{{route('users.edit', ['id'=>$user->id])}}" class="btn btn-primary btn-circle">
             <i class="fas fa-edit"></i>
         </a>
+        @endcan
     </div>
 	<div class="card-body">
 	    <div class="row justify-content-center">

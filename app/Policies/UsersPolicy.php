@@ -61,7 +61,7 @@ class UsersPolicy
      */
     public function delete(User $user, User $users)
     {
-        if($user->type == 'Super Admin' || $user->id == $users->id)
+        if($user->type == 'Super Admin')
         {
             return true;
         }
