@@ -152,8 +152,8 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{currentUser()->name}}</span>
-                @if(currentUser()->image)
-                <img class="img-profile rounded-circle" src="{{currentUser()->image}}">
+                @if(currentUser()->img)
+                <img class="img-profile rounded-circle" src="{{asset('uploads/'.currentUser()->img)}}">
                 @else
                 <img class="img-profile rounded-circle" src="{{asset('img/admin.png')}}">
                 @endif

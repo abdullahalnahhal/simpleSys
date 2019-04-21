@@ -25,8 +25,8 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block">
-                    @if($user->image)
-                        <img src="{{$user->image}}" class="img-fluid" alt="Responsive image">
+                    @if($user->img)
+                        <img src="{{asset('uploads/'.$user->img)}}" class="img-fluid" alt="Responsive image">
                     @else
                         <img src="{{asset('img/admin.png')}}" class="img-fluid" alt="Responsive image">
                     @endif
