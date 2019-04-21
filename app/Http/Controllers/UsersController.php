@@ -46,8 +46,11 @@ class UsersController  extends Controller
 		$user->email = $request->email;
 		$user->password = Hash::make($request->password);
 		$user->role_id = $request->role;
-		$destinationPath = 'uploads';
-      	$request->file('image')->move($destinationPath,$request->file('image')->getClientOriginalName());
+		if ($request->file('image')) {
+			$destinationPath = 'uploads';
+      		$file_name = $request->file('image')->move($destinationPath,rand().'_'.$request->file('image')->getClientOriginalName());
+			$user->img = $file_name->getBasename();
+		}
 		if ($user->save()) {
 			return redirect()->route('users.index')->with('Created','User Has Been Created ...!');
 		}
@@ -67,7 +70,8 @@ class UsersController  extends Controller
 		$user->role_id = $request->role;
 		if ($request->file('image')) {
 			$destinationPath = 'uploads';
-      		$request->file('image')->move($destinationPath,$request->file('image')->getClientOriginalName());
+      		$file_name = $request->file('image')->move($destinationPath,rand().'_'.$request->file('image')->getClientOriginalName());
+			$user->img = $file_name->getBasename();
 		}
 		if ($user->save()) {
 			return redirect()->route('users.index')->with('Updated','User Has Been Updated ...!');
