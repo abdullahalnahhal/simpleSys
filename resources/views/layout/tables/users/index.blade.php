@@ -27,17 +27,23 @@
             	<td>{{$counter++}}</td>
 	            <td>{{$user->name}}</td>
 	            <td>{{$user->email}}</td>
-	            <td>{{$user->role->role}}</td>
+	            <td>{{$user->role->role}} {{$user->type}}</td>
 	            <td>
+					@can('delete', $user)
 	            	<a href='javascript:void(0)' class="btn btn-danger btn-circle btn-sm command" command='confirm' action='url' url="{{route('users.delete', ['id'=>$user->id])}}" message='Do You Want Realy To Delete These Item'>
                         <i class="fas fa-trash"></i>
                     </a>
+					@endcan
+					@can('update', $user)
                     <a href="{{route('users.edit', ['id'=>$user->id])}}" class="btn btn-primary btn-circle btn-sm">
                         <i class="fas fa-edit"></i>
                     </a>
+					@endcan
+					@can('view', $user)
                     <a href="{{route('users.view', ['id'=>$user->id])}}" class="btn btn-success btn-circle btn-sm">
                         <i class="fas fa-eye"></i>
                     </a>
+					@endcan
                 </td>
 	        </tr>
 	        @endforeach

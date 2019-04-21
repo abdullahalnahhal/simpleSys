@@ -36,9 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    protected $appends = ['type'];
     public function role()
     {
         return $this->hasOne('App\Models\Roles', 'id', 'role_id');
+    }
+    public function getTypeAttribute()
+    {
+        return $this->role->role;
     }
 }
